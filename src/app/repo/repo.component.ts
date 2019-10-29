@@ -7,7 +7,6 @@ import { ApiService } from '.././api.service';
   styleUrls: ['./repo.component.css']
 })
 export class RepoComponent implements OnInit {
-    title = 'project2';
     repos: Object;
     groups: Object;
     constructor(private apiService: ApiService) { }
@@ -18,11 +17,6 @@ export class RepoComponent implements OnInit {
             console.log("getRepos");
             console.log(data);
             this.repos = JSON.stringify(data);
-        });
-
-        this.apiService.getGroups().subscribe((data) => {
-            this.groups = JSON.stringify(data);
-            console.log(data);
         });
   }
 
