@@ -1,2 +1,12 @@
 <h1>Contributors</h1>
-<p>{{contributors}}</p>
+
+<ng-container *ngIf="!contributors">
+    <h4>Loading contributor information...</h4>
+</ng-container>
+
+<ng-container *ngIf="contributors">
+    <div>
+        <p> {{contributors}} </p>
+        <br>
+    </div>
+</ng-container>
