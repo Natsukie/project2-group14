@@ -20,19 +20,24 @@ export class CommitsComponent implements OnInit {
             for (i = 0; i < Object.keys(data).length; i++) {
 
                 //get repo group id from data //
+
                 var rgid = data[i].repo_group_id;
                 //get repo id from data
                 var rpid = data[i].repo_id;
                 //use get pull request function//
                 this.apiService.getCommits(rgid, rpid).subscribe((data2) => {
 
-                    this.commits = this.commits + JSON.stringify(data2);
+                    if (data2[0] && data2[0].repo_id) {
+
+                        this.commits = this.commits + JSON.stringify(data2);
+                    }
 
 
                 });
             }
 
         });
+       
   }
 
 }
